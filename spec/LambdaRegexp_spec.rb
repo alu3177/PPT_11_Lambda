@@ -2,14 +2,6 @@ require 'LambdaRegexp'
 
 describe ULL::ETSII::Alu3177::LambdaRegexp do
 
-    let (:cadena) { "abcd" }
-    let (:prefix) { cadena[0] }
-    let (:left) { cadena[0] }
-    let (:right) { cadena[1] }
-    let (:non_prefix) { cadena[cadena.length-1] }
-    let (:resto)  { cadena[1..cadena.length-1] }
-
-
     include ULL::ETSII::Alu3177::LambdaRegexp
 
     before :all do
@@ -33,28 +25,23 @@ describe ULL::ETSII::Alu3177::LambdaRegexp do
 
     it "alt" do
         er_literal = alt(@er1, @er2)
-        s = 'a'
+        s = 'ab'
+        remaining = er_literal[s]
+        remaining.should == "b"
+    end
+
+    it "plus" do
+        er_literal = plus(@er1)
+        s = 'aaaaa'
         remaining = er_literal[s]
         remaining.should == ""
     end
 
-    it "Debe poseer un metodo char(c) y este debe retornar una Lambda." do
-        (char(prefix).lambda?).should == true
-    end
-
-    it "La Lambda del metodo char(c) devuelve 'false' si c no es prefijo de x" do
-        (char(non_prefix) [cadena]).should == false
-    end
-
-    it "La Lambda del metodo char(c) devuelve el resto de x si c es prefijo de x" do
-        (char(prefix) [cadena]).should == resto
-    end
-
-    it "Debe poseer un metodo seq(c) y este debe retornar una Lambda." do
-        (seq(left,right).lambda?).should == true
-    end
-
-    it "La Lambda del metodo epsilon devuelve la varibla del bloque pasado" do
+    it "star" do
+        er_literal = star(@er1)
+        s = 'aaaaa'
+        remaining = er_literal[s]
+        remaining.should == ""
     end
 
 end

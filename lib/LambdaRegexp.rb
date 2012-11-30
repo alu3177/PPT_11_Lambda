@@ -26,7 +26,7 @@ module ULL
                 end
 
                 def star(r)
-                    ->(x) { epsilon[x] or plus(r)[x] }
+                    ->(x) { plus(r)[x] or epsilon[x] }
                 end
 
             end

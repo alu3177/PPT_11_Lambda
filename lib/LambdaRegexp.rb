@@ -5,6 +5,8 @@ module ULL
         module Alu3177
             module LambdaRegexp
 
+                module_function
+
                 def epsilon
                     ->(x) { x }
                 end
@@ -28,12 +30,39 @@ module ULL
                 def star(r)
                     ->(x) { plus(r)[x] or epsilon[x] }
                 end
-
             end
         end
     end
 end
 
+
+class String
+    include ULL::ETSII::Alu3177::LambdaRegexp
+
+    def re
+        char(self)
+    end
+end
+
+class Proc
+    include ULL::ETSII::Alu3177::LambdaRegexp
+
+    def - (r)
+        seq(self, r)
+    end
+
+    def | (r)
+        alt(self, r)
+    end
+
+    def +@
+        plus(self)
+    end
+
+    def ~@
+        star(self)
+    end
+end
 
 
 =begin

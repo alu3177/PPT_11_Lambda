@@ -6,7 +6,7 @@ El objetivo es crear nuestro propio motor de expresiones regulares. Para ello, u
 
     seq(char('c'), seq(plus(alt(char('a'), char('d'))), char('r')))
 
-# Cémo se hace
+# Cómo se hace
 
 La idea es que char, seq, plus, etc. son métodos que retornan funciones (lambdas). La lambda retornada por char('d') reconoce el lenguaje 'd', la lambda retornada por star(char('c')) reconoce el lenguaje c* y la lambda retornada por seq(char('c'),     seq(plus(alt(char('a'), char('d'))), char('r'))) reconoce el lenguaje c(a|d)+r.
 

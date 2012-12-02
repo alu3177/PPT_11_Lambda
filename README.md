@@ -17,6 +17,7 @@ Mas en concreto, la lambda que representa la expresión regular r
     y devuelve el resto no casado de la cadena x si hubo matching.
 
 Por ejemplo, el método char recibe una cadena c y retorna una lambda que recibe una cadena x y
+
     devuelve false si c no es un prefijo de x.
     En caso contrario retorna el resto de la cadena.
 
@@ -30,3 +31,15 @@ Es posible usar overriding de operadores para mejorar la expresividad de la nota
     + unario es plus
     ~ es star
     El método re es una versión de char
+
+## Objetivos
+
+    Use TDD con RSpec
+    Use Unit Testing
+    Use Continuous Integration (Travis)
+    Use Continuous Testing (Guard)
+    Documente su gema (véase RDOC::Markup o RDOC o YARD).
+    Véa un ejemplo ilustrativo de como debería quedar la documentación del módulo creado en module ULL::ETSII::AluXXX::LambdaRegexp
+    Cree una gema ull-etsii-aluXX-lambdaregexp
+    Publique la gema en RubyGems.org
+    Indique la URL de su repositorio en GitHub

@@ -1,4 +1,4 @@
-# LambdaRegexp
+# LambdaRegexp (Práctica finalizada)
 
 ## Objetivo
 
